@@ -1,0 +1,11 @@
+Average text length per sentiment:
+sentiment
+neg    1302.84768
+pos    1347.16024
+Name: text_length, dtype: float64
+
+Most common words:
+[('movie', 49612), ('film', 45216), ('one', 26326), ('like', 20032), ('time', 14899), ('good', 14570), ('character', 13799), ('story', 12626), ('get', 12413), ('even', 12328), ('would', 12124), ('make', 11902), ('see', 11718), ('really', 11642), ('scene', 10234), ('much', 9549), ('well', 9316), ('people', 9189), ('bad', 8904), ('also', 8899)]
+
+Top bi-grams:
+[('look like', 1429), ('ever seen', 1234), ('ive seen', 1100), ('special effect', 1086), ('dont know', 1017), ('even though', 971), ('year old', 920), ('main character', 916), ('movie like', 882), ('one best', 877)]
