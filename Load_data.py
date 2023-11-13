@@ -57,7 +57,7 @@ def load_data(base_directory):
 
 if __name__ == "__main__":
     # Define the base directory containing 'pos' and 'neg' subdirectories
-    base_dataset_dir = '/home/orion/Geo/Projects/Emotion-Detection-Project/train'
+    base_dataset_dir = 'your/path/here'
 
     # Load the data from both subdirectories and create a DataFrame
     df = load_data(base_dataset_dir)
