@@ -73,8 +73,10 @@ def vectorize_text(texts):
 
 if __name__ == "__main__":
     filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/imdb_dataset.csv'
+    processed_filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/processed_imdb_dataset.csv'  # Define the path for the processed file
     df = load_data(filename)
     df['processed_text'] = df['text'].apply(preprocess_text)
+    df.to_csv(processed_filename, index=False)
     tfidf_matrix, vectorizer = vectorize_text(df['processed_text'])
     # You can now use 'tfidf_matrix' as input for your machine learning models.
     # And 'vectorizer' can be used later to transform any new text based on the learned vocabulary.
