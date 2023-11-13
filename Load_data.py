@@ -2,21 +2,15 @@ import os
 import pandas as pd
 
 def load_data_from_folder(directory, sentiment):
-    """
-    Load and process data from a specific folder.
 
-    Args:
-    directory (str): The directory path that contains the text files.
-    sentiment (str): The sentiment label ('pos' or 'neg') for this folder.
+   # Load and process data from a specific folder.
 
-    Returns:
-    list: A list of dictionaries, each containing an ID, rating, sentiment, and text.
-    """
-    rows = []  # Initialize an empty list to store the data
+
+    rows = []
 
     # Iterate over each file in the directory
     for filename in os.listdir(directory):
-        if filename.endswith(".txt"):  # Check if the file is a text file
+        if filename.endswith(".txt"):  # Check if the file is a text format
             # Extract ID and rating from the filename
             id, rating = filename.split('_')
             rating = rating.split('.')[0]
@@ -34,15 +28,9 @@ def load_data_from_folder(directory, sentiment):
     return rows
 
 def load_data(base_directory):
-    """
-    Load data from both positive and negative folders.
 
-    Args:
-    base_directory (str): The base directory path that contains 'pos' and 'neg' subdirectories.
+   # Load data from both positive and negative folders.
 
-    Returns:
-    DataFrame: A pandas DataFrame with columns for ID, rating, sentiment, and text.
-    """
     # Load data from the 'pos' folder, assigning 'pos' as the sentiment label
     pos_data = load_data_from_folder(os.path.join(base_directory, 'pos'), 'pos')
 
