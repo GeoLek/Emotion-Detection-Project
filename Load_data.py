@@ -45,10 +45,10 @@ def load_data(base_directory):
 
 if __name__ == "__main__":
     # Define the base directory containing 'pos' and 'neg' subdirectories
-    base_dataset_dir = '/home/orion/Geo/Projects/Emotion-Detection-Project/train'
+    base_dataset_dir = '/home/orion/Geo/Projects/Emotion-Detection-Project/test'
 
     # Load the data from both subdirectories and create a DataFrame
     df = load_data(base_dataset_dir)
 
     # Save the DataFrame to a CSV file
-    df.to_csv('imdb_dataset.csv', index=False)
+    df.to_csv('testdata.csv', index=False)
