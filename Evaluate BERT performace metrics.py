@@ -21,8 +21,8 @@ model.eval()
 # Assuming device is defined (as 'cuda' or 'cpu')
 model.to(device)
 
-# Load the test data (replace 'test_data.csv' with your data)
-df_test = pd.read_csv('test_data.csv')
+# Load the test data
+df_test = pd.read_csv('processed_testdata.csv')
 
 # Tokenize and encode the test dataset
 encoded_data_test = tokenizer.batch_encode_plus(
