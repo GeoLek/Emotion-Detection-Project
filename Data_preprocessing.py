@@ -72,8 +72,8 @@ def vectorize_text(texts):
     return tfidf_matrix, vectorizer
 
 if __name__ == "__main__":
-    filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/imdb_dataset.csv'
-    processed_filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/processed_imdb_dataset.csv'  # Define the path for the processed file
+    filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/testdata.csv'
+    processed_filename = '/home/orion/Geo/Projects/Emotion-Detection-Project/processed_testdata.csv'  # Define the path for the processed file
     df = load_data(filename)
     df['processed_text'] = df['text'].apply(preprocess_text)
     df.to_csv(processed_filename, index=False)
