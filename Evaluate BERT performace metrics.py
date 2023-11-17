@@ -5,27 +5,28 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pandas as pd
 import numpy as np
 
-
 # Function to calculate accuracy
 def flat_accuracy(preds, labels):
     pred_flat = np.argmax(preds, axis=1).flatten()
     labels_flat = labels.flatten()
     return np.sum(pred_flat == labels_flat) / len(labels_flat)
 
-
 # Load the tokenizer and the model
-tokenizer = BertTokenizer.from_pretrained('/home/orion/Geo/Projects/Emotion-Detection-Project')
-model = BertForSequenceClassification.from_pretrained('/home/orion/Geo/Projects/Emotion-Detection-Project')
+model_path = '/home/orion/Geo/Projects/Emotion-Detection-Project'
+tokenizer = BertTokenizer.from_pretrained(model_path)
+model = BertForSequenceClassification.from_pretrained(model_path)
 model.eval()
 
 # Check if CUDA (GPU support) is available and use it, otherwise use CPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-# Move the model to the specified device
-model.to(device)
+model.to(device)  # Move the model to the specified device
 
 # Load the test data
 df_test = pd.read_csv('processed_testdata.csv')
+
+# Map sentiment to numeric labels (assumes sentiments are 'pos' and 'neg')
+label_map = {'pos': 1, 'neg': 0}
+df_test['label'] = df_test['sentiment'].map(label_map)
 
 # Tokenize and encode the test dataset
 encoded_data_test = tokenizer.batch_encode_plus(
@@ -52,11 +53,7 @@ predictions, true_labels = [], []
 # Predict
 for batch in dataloader_test:
     batch = tuple(b.to(device) for b in batch)
-
-    inputs = {
-        'input_ids': batch[0],
-        'attention_mask': batch[1]
-    }
+    inputs = {'input_ids': batch[0], 'attention_mask': batch[1]}
 
     with torch.no_grad():
         outputs = model(**inputs)
@@ -73,22 +70,15 @@ true_labels = np.concatenate(true_labels, axis=0)
 
 # Calculate performance metrics
 accuracy = flat_accuracy(predictions, true_labels)
-print(f'Accuracy: {accuracy}')
-
 report = classification_report(true_labels, np.argmax(predictions, axis=1))
-print(f'Classification Report: \n{report}')
+conf_matrix = confusion_matrix(true_labels, np.argmax(predictions, axis=1))
 
-# Open a file to write the results
+print(f'Accuracy: {accuracy}')
+print(f'Classification Report: \n{report}')
+print(f'Confusion Matrix: \n{conf_matrix}')
+
+# Save the results in a text file
 with open('model_performance.txt', 'w') as file:
-    # Write the performance metrics to the file
     file.write(f'Accuracy: {accuracy}\n')
     file.write(f'Classification Report: \n{report}\n')
     file.write(f'Confusion Matrix: \n{conf_matrix}\n')
-
-# Optionally, also print the results to the console
-print(f'Accuracy: {accuracy}')
-print(f'Classification Report: \n{report}')
-print(f'Confusion Matrix: \n{conf_matrix}')
-
-conf_matrix = confusion_matrix(true_labels, np.argmax(predictions, axis=1))
-print(f'Confusion Matrix: \n{conf_matrix}')
