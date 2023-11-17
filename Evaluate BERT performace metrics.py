@@ -14,11 +14,14 @@ def flat_accuracy(preds, labels):
 
 
 # Load the tokenizer and the model
-tokenizer = BertTokenizer.from_pretrained('/home/Geo/Projects/Emotion-Detection-Project')
-model = BertForSequenceClassification.from_pretrained('/home/Geo/Projects/Emotion-Detection-Project')
+tokenizer = BertTokenizer.from_pretrained('/home/orion/Geo/Projects/Emotion-Detection-Project')
+model = BertForSequenceClassification.from_pretrained('/home/orion/Geo/Projects/Emotion-Detection-Project')
 model.eval()
 
-# Assuming device is defined (as 'cuda' or 'cpu')
+# Check if CUDA (GPU support) is available and use it, otherwise use CPU
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Move the model to the specified device
 model.to(device)
 
 # Load the test data
