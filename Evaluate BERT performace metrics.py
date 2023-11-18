@@ -29,7 +29,7 @@ label_map = {'pos': 1, 'neg': 0}
 df_test['label'] = df_test['sentiment'].map(label_map)
 
 # Tokenize and encode the test dataset
-encoded_data_test = tokenizer.batch_encode_plus(
+encoded_data_test = (tokenizer.batch_encode_plus(
     df_test['processed_text'].values,
     add_special_tokens=True,
     return_attention_mask=True,
@@ -37,7 +37,7 @@ encoded_data_test = tokenizer.batch_encode_plus(
     truncation=True,
     max_length=256,
     return_tensors='pt'
-)
+))
 
 input_ids_test = encoded_data_test['input_ids']
 attention_masks_test = encoded_data_test['attention_mask']
