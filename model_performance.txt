@@ -15,4 +15,4 @@ Confusion Matrix:
 
 
  WARNING: We used a batch size of 16 to implement the BERT model. The training lasted 2 days, working on a quad core AMD CPU. No CUDA support for GPU.
- Pick your batch size accordingly.
+ Select your batch size accordingly.
