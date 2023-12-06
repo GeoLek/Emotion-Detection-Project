@@ -7,4 +7,4 @@ An endeavor to create an Emotion Detection Project through text data using a 3-m
 IMDB reviews. Reach them out here: http://ai.stanford.edu/~amaas/data/sentiment/
 
 # LICENSE
-This project is licensed under the Apache License - see the LICENSE file for details.
+This project is licensed under the Apache License - see the [LICENSE](https://github.com/GeoLek/Emotion-Detection-Project/blob/main/LICENSE) file for details.
