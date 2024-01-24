@@ -1,7 +1,4 @@
 TO-DO 
+1)Re-check the fuzzy logic system performance
 
-1) Currently writing a bibliographic research for this project. An introduction on the seperate models of this 3 mechanism hybrid model will be presented, together with the methodology we will follow.
-
-2) Next, the implementation of fuzzy systems will take place.
-
-3) Then, we will implement Evolutionary Algorithms and we will decide which variant to make use of. 
+2) Implement a Genetic Algorithm (Evolutionary Algorithms) into the hybrid project. 
