@@ -1,0 +1,21 @@
+Project Overview
+
+Georgios Lekkas
+
+Update: 24 January 2024
+
+Implement BERT Transformer.py: Fine tune the BERT model (bert-base-uncased) on the processed imdb dataset
+
+Evaluate BERT performace metrics.py: Evaluate the BERT model performance.
+
+Load_data.py & Data_preprocessing.py: Scripts to load and preprocess data before further steps
+
+BERT Feature Extraction.py & BERT Feature Extraction with Memory Profiling and Garbage Collector.py: Scripts to extract BERT Features from processed text. The latter has some modifications for handling the memory.
+
+Analyze bert features for sentiment.py: Script to calculate the counts of data points falling into each interval for both positive and negative sentiment.
+
+BERT_and_Fuzzy_System_Implementation.py: Script to implement the Fuzzy Logic System with the BERT model and its extracted features.
+
+Executable_script.py: Script to visualize the input text from the user with the sentiment as output. Calls the BERT_and_Fuzzy_System_Implementation.py script. Mind the directory.
+
+This was a high overview of the project till now. The fuzzy logic system gives good and promising results. But more modifications are needed. Also, the implementation of a Genetic Algorithm (Evolutionary Algorithms) is at my TO-DO list to better improve the performance of my three mechanism emotion detection project. 
