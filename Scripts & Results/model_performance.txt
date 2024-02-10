@@ -1,0 +1,18 @@
+Accuracy: 0.90488
+Classification Report: 
+              precision    recall  f1-score   support
+
+           0       0.90      0.91      0.91     12500
+           1       0.91      0.90      0.90     12500
+
+    accuracy                           0.90     25000
+   macro avg       0.90      0.90      0.90     25000
+weighted avg       0.90      0.90      0.90     25000
+
+Confusion Matrix: 
+[[11343  1157]
+ [ 1221 11279]]
+
+
+ WARNING: We used a batch size of 16 to implement the BERT model. The training lasted 2 days, working on a quad core AMD CPU. No CUDA support for GPU.
+ Select your batch size accordingly.
